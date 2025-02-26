@@ -407,7 +407,7 @@ For the $(\Ksf,\Nsf,\Nsf_{\rm r}, \msf)$ secure gradient coding problem, for a f
 \end{align}
 where \(\delta(x \in \Zc_{s_j})\) equals \(1\) if \(x \in \Zc_{s_j}\), and \(0\) otherwise.
 
-It must hold that
+Under the symmetric transmission and linear coding, it must hold that
 \begin{align}
 \eta \geq \frac{|\sv|}{\msf}-1. \label{eq:converse lemma}
 \end{align}
@@ -977,7 +977,9 @@ From~\eqref{eq:shannon}, we further obtain:
 \end{subequations}
 where~\eqref{eq:W1 inde} follows from the independence of $\Ksf$ messages, each uniformly i.i.d. over $[\mathbb{F}_{\qsf}]^{\Lsf}$. % and~\eqref{eq:lemma converse all term} is derived using the chain rule of entropy.
 
-Prove of~\eqref{eq:lemma converse all term} Note that server $s_i$ always contains at least one message $W_{s_i}$ which can not be computed by $m$ servers from $\{s_1, \ldots, s_{i-1}\}$. Consider the case that apart from $\Nsf - \Nsf_{\rm r}$ stragglers, there are exactly $m$ servers who can compute $W_{s_i}$. Then,  the entropy of messages from these servers should be larger than $H(W_{s_i}) = \Lsf$. Without loss of generality, we assume $W_{s_i}$ can be computed by servers in $\{i,\ldots,\text{Mod}(i-m+1,|\sv|)\}$. We use \(\Wc\) to denote the set of messages excluding \(W_{s_1}, \ldots, W_{s_{|s|}}\) and use $\overline{W_{s_i}}$ to denote the set of all messages without $W_{s_i}$.
+Next, I will prove~\eqref{eq:lemma converse all term} under the symmetric transmission and linear coding. Note that server $s_i$ always contains at least one message $W_{s_i}$ which can not be computed by $m$ servers from $\{s_1, \ldots, s_{i-1}\}$.  Consider the case that apart from $\Nsf - \Nsf_{\rm r}$ stragglers, there are exactly $m$ servers who can compute $W_{s_i}$. Under the symmetric transmission and linear coding, each server should contain $\frac{1}{m}$ independent part of $W_{s_i}$. Thus, we have the message of server $s_i$ is independent to messages from $\{s_1, \ldots, s_{i-1}\},$ because of the independent part of $W_{s_i}$. Since the length of each message should be larger than $\frac{\Lsf}{\msf}$, we can obtain~\eqref{eq:lemma converse all term} under the symmetric transmission and linear coding. 
+\iffalse
+the entropy of messages from these servers should be larger than $H(W_{s_i}) = \Lsf$. Without loss of generality, we assume $W_{s_i}$ can be computed by servers in $\{i,\ldots,\text{Mod}(i-m+1,|\sv|)\}$. We use \(\Wc\) to denote the set of messages excluding \(W_{s_1}, \ldots, W_{s_{|s|}}\) and use $\overline{W_{s_i}}$ to denote the set of all messages without $W_{s_i}$.
 Consider the computation of messages $W_{s_1}, \ldots, W_{s_{|s|}}$, we have 
 \begin{subequations}
 \begin{align}
@@ -989,7 +991,7 @@ Consider the computation of messages $W_{s_1}, \ldots, W_{s_{|s|}}$, we have
      & \geq   |\sv| \Lsf.
 \end{align}
 \end{subequations}
-
+\fi
 
 \section{The general scheme of Theorem~\ref{thm:main achievable scheme}}
 \label{sec:general scheme} 
